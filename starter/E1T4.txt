@@ -1,5 +1,8 @@
 Based on the architecture diagram, and the steps you have taken so far to upload data and access the application web service, identify at least 2 obvious poor practices as it relates to security.  Include justification.
 
 # Poor practice 1
-
+The WebAppSG security group has explicit allowances for SSH and port 5000 from anywhere those are also overridden by an allow all traffic from any IP rule. 
+This is a poor practice because it allows anyone to SSH into the instance or access other services directly. 
+This should be restricted to only allow access from the ALB security group, and only through HTTP or HTTPS ports (80 & 443)
 # Poor practice 2
+Object versioning is disabled in both S3 buckets, this could lead to accidental deletion of objects and data loss.

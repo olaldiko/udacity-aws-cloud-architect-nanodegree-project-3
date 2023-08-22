@@ -2,4 +2,10 @@
 
 # Identify 2-3 changes that can be made to our environment to prevent an ssh brute force attack from the internet.
 
+The first and most obvious would be block the access to the machine from the internet. For that the security group assigned to the instance would need to be changed, only allowing traffic to the 80 port from the ELB.
+The machine doesn't need a public IP either so this can be removed as well. 
+The last measure would be to disable the SSH server on the host itself or at least allow access only via public key authentication. Fail2ban can also be installed to ban IPs attempting to bruteforce the machine.
+
+
 # Neither instance should have had access to the secret recipes bucket, in the even that instance API credentials were compromised how could we have prevented access to sensitive data.
+The bucket should use a KMS key that is only assigned to specified roles, not assigned to any of the machines. This way users or instances not having access to the role and therefore to the key will not be able to read the content.

@@ -1,3 +1,9 @@
 # Describe GuardDuty findings that were detected related to the brute force attack
 
+Guardduty detected the bruteforce attack to the instance and pointed it out as a high severity finding. It shows the instance, attacker IP address and network details.
+
 # Research the AWS Guard Duty documentation page and explain how GuardDuty may have detected this attack - i.e. what was its source of information.
+
+As Guardduty does not collect information from the instance itself, such as SSH logs that would show the ongoing attack,
+Guardduty should have collected the information from the VPC flow logs that does monitor. 
+In the flow logs the repeated connections to the SSH server will be shown.

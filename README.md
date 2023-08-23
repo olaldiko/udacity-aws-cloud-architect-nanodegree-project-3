@@ -1,3 +1,6 @@
+# Udacity Cloud Architect Nanodegree 3rd course project
+This repository contains the work done as part of the CAND of Udacity. The starter folder contains the provided code for the project, while the deliverables folder contains all the work done to achieve it.
+
 # Cloud Security - Secure the Recipe Vault Web Application
  
 In this project, you will:

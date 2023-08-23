@@ -1,0 +1,15 @@
+Research and analyze which of the vulnerabilities appear to be related to the code that was deployed for the environment in this project.
+
+Bonus - provide recommendations on how to remediate the vulnerabilities.
+
+
+Several of the vulnerabilities spotted with the tool are the ones that were already detected during the creation of the stack.
+This vulnerabilities include the security groups, too permissive and allowing the access to the instances from the internet. 
+These security groups should be revised to make them allow only connections to the required ports for the web app (80 & optionally 443 if HTTPS is enabled, which should). 
+Unused security groups should be disabled.
+The app also has highlighted that the instances are being assigned public IP addresses, making them directly accessible from the internet. 
+These IP addresses should be unassigned, leaving access only through the ELB. For management of the instance, systems manager should be used.
+In the case of the S3 buckets, the tool highlights that the lifecycle policies and versioning are not enabled, and connections through HTTPS are not enfored either.
+These should be enabled, and the bucket should be configured to only allow access via HTTPS. 
+Additionally, the bucket can have an VPC endpoint so the instances do not need to exit the internet to access the bucket.
+The tool also highlights that the subnets in the VPC assign IP addresses automatically, if not needed, this should be disabled so that no unauthorized instances connect to the subnet without configuration.

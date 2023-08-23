@@ -1,0 +1,7 @@
+# Additional hardening recommendations
+
+- The web application could be put behind a WAF to detect attacks to the web application logic itself, such as SQL injection, XSS, etc.
+- In order to detect and stop intrusions or alterations to the machines themselves, a host-based IDS could be installed. Fail2ban would also be useful for stopping attacks to the different services running on the machine, specially brute force attacks to the SSH server or to the web application login.
+- The AWS systems manager agent could be installed on the machines to interact with the existing security services on AWS. This would allow to monitor the machines and the network traffic, and to detect and alert about suspicious activity.
+- VPC endpoints can be created for the S3 buckets in order to allow access from the VPC only. A IAM policy specifying this would be needed.
+- The S3 buckets could be encrypted using KMS. This would allow to control access to the encryption keys and to audit access to the buckets.

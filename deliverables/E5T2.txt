@@ -1,0 +1,27 @@
+# Identify tools that will allow you to do the following:
+
+## Scan infrastructure as code templates
+
+We can use tfsec from aquasec or regula to perform static analysis of the IaC templates in terraform. For cloudformation, we can use AWS provided tools. AWS Codebuild provides support for that.
+
+### Example vulnerability
+
+Example vulnerabilities would include too wide IAM policies or open security groups. 
+
+##Scan AMI’s or containers for OS vulnerabilities
+
+For container vulnerability scanning we can use Trivy or Clair, as well as AWS inspector if the images are stored in ECR. For AMI scanning we can use AWS Inspector by following the example workflow defined at https://aws.amazon.com/blogs/security/how-to-scan-ec2-amis-using-amazon-inspector/
+
+### Example vulnerability
+
+Example vulnerabilities include outdated packages with known CVEs or poorly hardened OSs with unnecessary services running.
+
+##Scan an AWS environment for cloud configuration vulnerabilities
+
+We can use AWS Config rules, AWS SecurityHub and Amazon Inspector to detect vulnerabilities or compliance flaws in our architecture. 
+Third party solutions such as Checkpoint's CNAPP can also be used.
+
+### Example vulnerability
+
+Example vulnerabilities can include changes made manually on the infrastructure that were not shown in the previous steps of the pipeline, such as open security groups or IAM policies that are too wide. 
+Attackers can also alter the infrastructure to make it more vulnerable or to open attack vectors by modifying policies or adding new resources.
